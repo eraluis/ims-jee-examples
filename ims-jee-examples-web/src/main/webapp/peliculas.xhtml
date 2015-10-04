@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+<head>
+	<title>IMS AppWeb</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="#{resource['css:default.css']}" />	
+</head>
+
+<body>
+	<h1>IMS Aplicación Web</h1>	
+	<h2>Mis películas favoritas (o en su defecto libros) </h2>
+	
+	<h:form>	
+		<h:panelGrid columns="2" styleClass="center">		
+			<h:outputLabel value="Titulo:"></h:outputLabel>
+			<h:inputText value="#{peliculasBean.peliculaActual.titulo}" ></h:inputText>
+			
+			<h:outputLabel value="Año:"></h:outputLabel>
+			<h:inputText value="#{peliculasBean.peliculaActual.anio}" ></h:inputText>
+			
+			<h:outputLabel value="Duración:"></h:outputLabel>
+			<h:inputText value="#{peliculasBean.peliculaActual.duracion}" ></h:inputText>
+			
+			<h:outputLabel value="Pais:"></h:outputLabel>
+			<h:inputText value="#{peliculasBean.peliculaActual.pais}" ></h:inputText>
+			
+			<h:outputLabel value=""></h:outputLabel>
+			<h:commandButton value="Agregar"  action="#{peliculasBean.agregarPelicula()}"></h:commandButton>		
+		</h:panelGrid>
+		
+		<p />
+				
+		<h:dataTable value="#{peliculasBean.listaPeliculas}" rendered="#{peliculasBean.listaPeliculas.size() != 0}"
+			var="varPelicula" border="1" styleClass="center">
+			<h:column> 
+				<f:facet name="header">Título</f:facet>	
+				<h:outputText value="#{varPelicula.titulo}"></h:outputText>  
+			</h:column>
+			<h:column>
+				<f:facet name="header">Año</f:facet>	
+				<h:outputText value="#{varPelicula.anio}"></h:outputText>  
+			</h:column>
+			<h:column>
+				<f:facet name="header">Duración</f:facet> 		
+				<h:outputText value="#{varPelicula.duracion}"></h:outputText>  
+			</h:column>
+			<h:column>
+				<f:facet name="header">País</f:facet>
+				<h:outputText value="#{varPelicula.pais}"></h:outputText>  
+			</h:column>
+		</h:dataTable>
+		
+	</h:form>	
+</body>
+
+</html>
