@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: ims-jee-examples-web
-Bundle-SymbolicName: ims-jee-examples-web
-Bundle-Version: 1.0.0.qualifier
-Export-Package: edu.fup.ims.mbeans,
- edu.fup.ims.model
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -1,23 +1,23 @@
-package edu.fup.ims.mbeans;
+package edu.fup.ims.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 
 @ManagedBean
-@RequestScoped
-public class RequestBean {
+@ApplicationScoped
+public class AplicacionBean {
 
 	//atributos (Variables de instancia) 
-	private String tipo = "Bean de request";
+	private String tipo = "Bean de aplicación";
 	private int numeroDeLlamadas = 0;
 	private List<String> clientes = new ArrayList<String>();
 	private String clienteActual = "";
 	
 	//Contructor por defecto
-	public RequestBean(){
+	public AplicacionBean(){
 
 	}
 	

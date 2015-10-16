@@ -7,6 +7,7 @@
 		<artifactId>ims-jee-examples</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
+	
 	<artifactId>ims-jee-examples-web</artifactId>
 	<packaging>war</packaging>
 	<name>ims-jee-examples-web</name>
@@ -18,6 +19,11 @@
 			<artifactId>javaee-api</artifactId>
 			<version>6.0</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap</artifactId>
+		    <version>3.0.2</version>
 		</dependency>
 	</dependencies>
 

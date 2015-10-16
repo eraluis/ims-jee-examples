@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+<head>
+	<title>IMS WebApp</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="#{resource['css:default.css']}" />	
+</head>
+
+<body>
+
+	<div id="header">
+		<h1>IMS Aplicación Web</h1>
+	</div>
+	<div id="content">	
+		<h2>Gestión por JSF de películas </h2>	
+		<h:form styleClass="center">
+			<h:panelGrid columns="2" >		
+				<h:outputLabel value="Titulo:"></h:outputLabel>
+				<h:inputText value="#{peliculasBean.peliculaActual.titulo}" ></h:inputText>
+				
+				<h:outputLabel value="Año:"></h:outputLabel>
+				<h:inputText value="#{peliculasBean.peliculaActual.anio}" ></h:inputText>
+				
+				<h:outputLabel value="Duración:"></h:outputLabel>
+				<h:inputText value="#{peliculasBean.peliculaActual.duracion}" ></h:inputText>
+				
+				<h:outputLabel value="Pais:"></h:outputLabel>
+				<h:inputText value="#{peliculasBean.peliculaActual.pais}" ></h:inputText>
+				
+				<h:outputLabel value=""></h:outputLabel>
+				<h:commandButton value="Agregar"  action="#{peliculasBean.agregarPelicula()}"></h:commandButton>		
+			</h:panelGrid>
+			
+			<div class="text_line" />					
+			<h:dataTable value="#{peliculasBean.listaPeliculas}" var="varPelicula" 
+						rendered="#{peliculasBean.listaPeliculas.size() != 0}" 
+						border="1" width="100%">
+				<h:column> 
+					<f:facet name="header">Título</f:facet>	
+					<h:outputText value="#{varPelicula.titulo}"></h:outputText>  
+				</h:column>
+				<h:column>
+					<f:facet name="header">Año</f:facet>	
+					<h:outputText value="#{varPelicula.anio}"></h:outputText>  
+				</h:column>
+				<h:column>
+					<f:facet name="header">Duración</f:facet> 		
+					<h:outputText value="#{varPelicula.duracion}"></h:outputText>  
+				</h:column>
+				<h:column>
+					<f:facet name="header">País</f:facet>
+					<h:outputText value="#{varPelicula.pais}"></h:outputText>  
+				</h:column>
+			</h:dataTable>		
+		</h:form>
+		
+		<div class="text_line" />
+		<h2>Gestión por Servicios Web de películas</h2>
+		<div class="center">
+			@TODO Crear servicios
+		</div>
+	</div>	
+	
+	<div id="footer">
+		<div class="footer-content">
+			IMS - Intelligent Management Systems<br />
+			SmartER Group<br />		
+		</div>
+	</div>
+</body>
+
+</html>

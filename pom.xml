@@ -5,8 +5,12 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>ims-jee-examples</name>
+  
+  <properties>
+  	<global.version>1.0-SNAPSHOT</global.version>
+  </properties>
+  
   <modules>
   	<module>ims-jee-examples-web</module>
-  	<module>ims-jee-examples-bo</module>
   </modules>
 </project>
