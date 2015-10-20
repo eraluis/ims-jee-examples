@@ -17,8 +17,8 @@ import edu.fup.ims.model.Client;
 * @author Luis Eraso
 */
 @Stateless
-@WebService
-public class ClientService {
+@WebService(serviceName="soap", name="clientService")
+public class ClientSoap {
     
     @Inject CreditCardLBO creditCardBO;
     @Inject ClientLBO clientLBO;
@@ -28,12 +28,12 @@ public class ClientService {
         clientLBO.add(client);        
     }
     
-    /*
+    
     public void createClient(Client client) throws ApplicationException {
         if(client.getId() != null){
         	throw new ApplicationException("APP-CL-01 Client already exists");        
         }
         clientLBO.add(client);        
     }
-     */
+    
 }

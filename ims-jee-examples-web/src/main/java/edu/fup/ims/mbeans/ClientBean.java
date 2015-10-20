@@ -7,6 +7,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 import edu.fup.ims.bo.ClientLBO;
 import edu.fup.ims.configuration.ApplicationConfig;
@@ -16,13 +18,11 @@ import edu.fup.ims.model.Client;
 @ViewScoped
 public class ClientBean {
 
-	@Inject 
-	private ClientLBO clientLBO;
-	
+	@Inject private ApplicationConfig appConfig;
+	@Inject private ClientLBO clientLBO;
+		
 	private Client client;
 	private List<Client> listClient;
-	private ApplicationConfig appConfig;
-	
 	
 	public ClientBean() {
 		//init();
@@ -36,7 +36,6 @@ public class ClientBean {
 	public void init(){
 		client = new Client();
 		listClient = clientLBO.findAll();
-		appConfig = new ApplicationConfig();
 				
 		if(listClient == null){
 			System.out.println("listClient is null");
@@ -51,7 +50,28 @@ public class ClientBean {
 		client = new Client();
 		return null;
 	}
+	
+	
+	public String testServerName(){
+		String uno = System.getProperty("jboss.server.name");
+		String dos = System.getProperty("ServerName");
+		String tres = null;
+		
+		InitialContext ic;
+		try {
+			ic = new javax.naming.InitialContext();
+			tres = ic.lookup("servername").toString();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("uno: "+uno);
+		System.out.println("dos: "+dos);
+		System.out.println("tres: "+tres);	
 
+		return null;
+	}
 	//Getters and setters...
 	public Client getClient() {
 		return client;

@@ -7,12 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
 *
 * @author Luis Eraso
 */
-@Entity
+@Entity(name = "tbl_client")
 public class Client implements Serializable {
     
     private static final long serialVersionUID = -2199187180350755391L;
@@ -22,8 +23,8 @@ public class Client implements Serializable {
 
     private String firstName;
     private String lastName;
-    private Date birthday;
-    
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date birthday;    
     private String address;
 
     //Constructor por defeto
@@ -76,6 +77,5 @@ public class Client implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-   
+    }   
 }

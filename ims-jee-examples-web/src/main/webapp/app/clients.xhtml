@@ -33,7 +33,8 @@
 				<h:inputText value="#{clientBean.client.address}" ></h:inputText>
 				
 				<h:outputLabel value=""></h:outputLabel>
-				<h:commandButton value="Agregar"  action="#{clientBean.addClient()}"></h:commandButton>		
+				<h:commandButton value="Agregar"  action="#{clientBean.addClient()}"></h:commandButton>	
+				<h:commandButton value="Test"  action="#{clientBean.testServerName()}"></h:commandButton>	
 			</h:panelGrid>
 			
 			<div class="text_line" />
@@ -65,8 +66,9 @@
 				<li> ClientService 
 					<ul>
 						<li>URL: <a href="http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ims-jee-examples-web/ClientService?wsdl">
-							http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ims-jee-examples-web/ClientService?wsdl </a></li>
+							http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ims-jee-examples-web/ClientSoap?wsdl </a></li>
 						<li>Function: createClient</li>
+						<li>AppServer: #{clientBean.appConfig.serverName}</li>
 					</ul>				
 				</li>
 			</ul>

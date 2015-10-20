@@ -2,22 +2,18 @@ package edu.fup.ims.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
 *
 * @author Luis Eraso
 */
-@Entity
+@Entity(name = "tbl_credit_card")
 public class CreditCard implements Serializable {
     
     private static final long serialVersionUID = -4700465238176510710L;
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-
+    @Id
     private String number;
     private String expirytDate;
     private Integer controllNumber;
@@ -36,14 +32,6 @@ public class CreditCard implements Serializable {
         this.controllNumber = controllNumber;
         this.type = type;
         this.balance = balance;
-    }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
     
     public String getNumber() {
