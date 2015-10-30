@@ -9,13 +9,13 @@ import javax.ejb.Stateless;
 * @author Luis Eraso
 */
 @Stateless
-public class CreditCardBOImpl extends CrudBOImpl<CreditCard> implements CreditCardLBO {
+public class CreditCardLBOImpl extends CrudBOImpl<CreditCard> implements CreditCardLBO {
     
-    public CreditCardBOImpl() {
+    public CreditCardLBOImpl() {
         this(CreditCard.class);
     }
 
-    public CreditCardBOImpl(Class<CreditCard> entityClass) {
+    public CreditCardLBOImpl(Class<CreditCard> entityClass) {
         super(entityClass);
     }
 

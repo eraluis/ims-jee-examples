@@ -18,14 +18,15 @@ import javax.ws.rs.Produces;
  * @author Luis Eraso
  */
 @Path("/clients")
-@Produces({ "application/json", "application/xml"})
+@Produces({"application/json", "application/xml"})
 public class ClientRest {
-    
-    @Inject ClientLBO clientLBO;
-	
-	@GET
-	public List<Client> listVariables() {		
-		return clientLBO.findAll();
-	}
-    
+
+    @Inject
+    ClientLBO clientLBO;
+
+    @GET
+    public List<Client> listVariables() {
+        return clientLBO.findAll();
+    }
+
 }

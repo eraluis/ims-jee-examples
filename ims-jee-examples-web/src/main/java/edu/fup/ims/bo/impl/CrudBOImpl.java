@@ -29,6 +29,7 @@ public abstract class CrudBOImpl<T> implements CrudBO<T> {
     @Override
     public T add(T entity){
         em.persist(entity);
+        em.flush();
         return entity;
     }
         

@@ -10,13 +10,13 @@ import edu.fup.ims.model.Client;
 * @author Luis Eraso
 */
 @Stateless
-public class ClientBOImpl extends CrudBOImpl<Client> implements ClientLBO {
+public class ClientLBOImpl extends CrudBOImpl<Client> implements ClientLBO {
 
-    public ClientBOImpl(){
+    public ClientLBOImpl(){
       this(Client.class);  
     }
     
-    public ClientBOImpl(Class<Client> entityClass) {
+    public ClientLBOImpl(Class<Client> entityClass) {
         super(entityClass);
     }
 

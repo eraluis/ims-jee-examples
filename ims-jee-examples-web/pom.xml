@@ -20,11 +20,11 @@
 			<version>6.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 		    <groupId>org.webjars</groupId>
 		    <artifactId>bootstrap</artifactId>
 		    <version>3.0.2</version>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 
 

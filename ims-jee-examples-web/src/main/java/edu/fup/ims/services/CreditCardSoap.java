@@ -15,28 +15,25 @@ import javax.jws.WebService;
 @Stateless
 @WebService
 public class CreditCardSoap {
-       	
+
     @Inject CreditCardLBO creditCardLBO;
     @Inject TransactionLBO transactionLBO;
-    
-    public String createCreditCard(String number, String expirytDate, Integer controllNumber, String type, double balance){
-        CreditCard creditCard = new CreditCard(number, expirytDate, controllNumber, type, balance);        
-        creditCardLBO.add(creditCard);        
+
+    public String createCreditCard(String number, String expirytDate, Integer controllNumber, String type, double balance) {
+        CreditCard creditCard = new CreditCard(number, expirytDate, controllNumber, type, balance);
+        creditCardLBO.add(creditCard);
         return creditCard.getNumber();
-        
     }
-    
-    public double getCreditCardBalance(String number){         
+
+    public double getCreditCardBalance(String number) {
         // TODO Implementar función en CreditCardBOImpl
         return 2000000.0;
     }
-    
-    public String createTransaction(long creditCardId, double transactionValue){
-        
+
+    public String createTransaction(long creditCardId, double transactionValue) {
         CreditCard creditCard = new CreditCard();
         String result = transactionLBO.createTransaction(creditCard, transactionValue);
         return result;
-
     }
-    
+
 }

@@ -5,6 +5,7 @@ import java.util.List;
 /**
 *
 * @author Luis Eraso
+* @param <T>
 */
 public interface CrudBO<T> {
 

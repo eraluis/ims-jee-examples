@@ -8,8 +8,6 @@ import edu.fup.ims.model.Client;
 * @author Luis Eraso
 */
 @Local
-public interface ClientLBO extends CrudBO<Client> {
-
-    
+public interface ClientLBO extends CrudBO<Client> {    
     
 }

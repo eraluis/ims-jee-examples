@@ -2,85 +2,89 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
-	
-<head>
-	<title>IMS WebApp</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="#{resource['css:default.css']}" />	
-</head>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
-<body>
+    <head>
+        <title>IMS WebApp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="#{resource['css:default.css']}" />	
+    </head>
 
-	<div id="header">
-		<h1>IMS Web Application</h1>
-	</div>
-	
-	<div class="clear"/>	
-	<div id="content" >	
-		<h2>JSF Client Management</h2>	
-		<h:form styleClass="center">	
-			<h:panelGrid columns="2" >		
-				<h:outputLabel value="First name:"></h:outputLabel>
-				<h:inputText value="#{clientBean.client.firstName}" ></h:inputText>
-				
-				<h:outputLabel value="Last name:"></h:outputLabel>
-				<h:inputText value="#{clientBean.client.lastName}" ></h:inputText>
-				
-				<h:outputLabel value="Address:"></h:outputLabel>
-				<h:inputText value="#{clientBean.client.address}" ></h:inputText>
-				
-				<h:outputLabel value=""></h:outputLabel>
-				<h:commandButton value="Agregar"  action="#{clientBean.addClient()}"></h:commandButton>	
-				<h:commandButton value="Test"  action="#{clientBean.testServerName()}"></h:commandButton>	
-			</h:panelGrid>
-			
-			<div class="text_line" />
-			<h:dataTable value="#{clientBean.listClient}" rendered="#{clientBean.listClient.size() != 0}"
-				var="varClient" border="1" width="100%">
-				<h:column> 
-					<f:facet name="header">First name</f:facet>	
-					<h:outputText value="#{varClient.firstName}"></h:outputText>  
-				</h:column>
-				<h:column>
-					<f:facet name="header">Last name</f:facet>	
-					<h:outputText value="#{varClient.lastName}"></h:outputText>  
-				</h:column>
-				<h:column>
-					<f:facet name="header">Birthday</f:facet>	
-					<h:outputText value="#{varClient.birthday}"></h:outputText>  
-				</h:column>
-				<h:column>
-					<f:facet name="header">Address</f:facet> 		
-					<h:outputText value="#{varClient.address}"></h:outputText>  
-				</h:column>
-			</h:dataTable>		
-		</h:form>
-		
-		<div class="text_line"></div>
-		<h2>WebService Client Management</h2>
-		<div class="center"> 
-			<ul>
-				<li> ClientService 
-					<ul>
-						<li>URL: <a href="http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ims-jee-examples-web/ClientService?wsdl">
-							http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ims-jee-examples-web/ClientSoap?wsdl </a></li>
-						<li>Function: createClient</li>
-						<li>AppServer: #{clientBean.appConfig.serverName}</li>
-					</ul>				
-				</li>
-			</ul>
-		</div>	
-	</div>	
-	
-	<div class="clear"/>
-	<div id="footer" >
-		<div class="footer-content">
-			IMS - Intelligent Management Systems<br />
-			SmartER Group<br />		
-		</div>
-	</div>
-</body>
+    <body>
+
+        <div id="header">
+            <h1>IMS Web Application</h1>
+        </div>
+
+        <div class="clear"/>	
+        <div id="content" >	
+            <h2>JSF Client Management</h2>	
+            <h:form styleClass="center">	
+                <h:panelGrid columns="2" >		
+                    <h:outputLabel value="First name:"></h:outputLabel>
+                    <h:inputText value="#{clientBean.client.firstName}" ></h:inputText>
+
+                    <h:outputLabel value="Last name:"></h:outputLabel>
+                    <h:inputText value="#{clientBean.client.lastName}" ></h:inputText>
+
+                    <h:outputLabel value="Address:"></h:outputLabel>
+                    <h:inputText value="#{clientBean.client.address}" ></h:inputText>
+
+                    <h:outputLabel value=""></h:outputLabel>
+                    <h:commandButton value="Agregar"  action="#{clientBean.addClient()}"></h:commandButton>
+                </h:panelGrid>
+
+                <div class="text_line" />
+                <h:dataTable value="#{clientBean.listClient}" rendered="#{clientBean.listClient.size() != 0}"
+                             var="varClient" border="1" width="100%">
+                    <h:column> 
+                        <f:facet name="header">First name</f:facet>	
+                        <h:outputText value="#{varClient.firstName}"></h:outputText>  
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Last name</f:facet>	
+                        <h:outputText value="#{varClient.lastName}"></h:outputText>  
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Birthday</f:facet>	
+                        <h:outputText value="#{varClient.birthday}"></h:outputText>  
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Address</f:facet> 		
+                        <h:outputText value="#{varClient.address}"></h:outputText>  
+                    </h:column>
+                </h:dataTable>		
+            </h:form>
+
+            <div class="text_line"></div>
+            <h2>WebService Client Management</h2>
+            <div class="center"> 
+                <ul>
+                    <li> ClientService 
+                        <ul>
+                            <li>GlassFish URL:
+                                <a href="http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ClientSoapService/ClientSoap?wsdl" target="_blank">
+                                    http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ClientSoapService/ClientSoap?wsdl </a></li>
+                            
+                            <li>JBoss URL: 
+                                <a href="http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ims-jee-examples-web/ClientService?wsdl" target="_blank">
+                                    http://#{clientBean.appConfig.server}:#{clientBean.appConfig.port}/ims-jee-examples-web/ClientSoap?wsdl </a></li>
+
+                            <li>Function: createClient</li>
+                        </ul>				
+                    </li>
+                </ul>
+            </div>	
+        </div>	
+
+        <div class="clear"/>
+        <div id="footer" >
+            <div class="footer-content">
+                IMS - Intelligent Management Systems<br />
+                SmartER Group<br />		
+            </div>
+        </div>
+    </body>
 </html>
