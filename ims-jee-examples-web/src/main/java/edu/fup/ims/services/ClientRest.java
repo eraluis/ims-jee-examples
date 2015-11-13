@@ -12,20 +12,21 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author Luis Eraso
  */
 @Path("/clients")
-@Produces({"application/json", "application/xml"})
+@Produces({MediaType.APPLICATION_JSON})
 public class ClientRest {
 
     @Inject
     ClientLBO clientLBO;
 
     @GET
-    public List<Client> listVariables() {
+    public List<Client> listClients() {
         return clientLBO.findAll();
     }
 

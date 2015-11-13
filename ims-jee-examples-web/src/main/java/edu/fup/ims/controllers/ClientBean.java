@@ -1,4 +1,4 @@
-package edu.fup.ims.mbeans;
+package edu.fup.ims.controllers;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -13,7 +13,7 @@ public class RequestBean {
 	//atributos (Variables de instancia) 
 	private String tipo = "Bean de request";
 	private int numeroDeLlamadas = 0;
-	private List<String> clientes = new ArrayList<String>();
+	private List<String> clientes = new ArrayList<>();
 	private String clienteActual = "";
 	
 	//Contructor por defecto

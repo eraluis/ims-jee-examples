@@ -1,4 +1,4 @@
-package edu.fup.ims.mbeans;
+package edu.fup.ims.controllers;
 
 import edu.fup.ims.bo.PeliculaLBO;
 import java.util.ArrayList;
@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import edu.fup.ims.model.Pelicula;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 @ManagedBean
@@ -24,6 +25,21 @@ public class PeliculasBean {
 
     //constructor por defecto
     public PeliculasBean() {
+    }
+    
+    @PostConstruct
+    public void construct() {
+        init();
+    }
+
+    public void init() {
+        peliculaActual = new Pelicula();
+        listaPeliculas = peliculaLBO.findAll();
+
+        if (listaPeliculas == null) {
+            System.out.println("listaPeliculas is null");
+            listaPeliculas = new ArrayList<>();
+        }
     }
 
     //acciones de botones

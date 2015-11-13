@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <head>
+        <title>IMS WebApp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="#{resource['css:bootstrap.min.css']}" />	
+    </head>
+
+    <body class="container" >  
+        <br />
+        <h:form>
+        <div class="panel panel-primary">
+            
+            <div class="panel-heading">Pruebas generales</div>
+            <div class="panel-body">
+                <h3>Pruebas con archivos</h3>
+                <button class="btn btn-default" >Do notting</button> <span />
+                <h:commandButton value="Read file" action="#{fileReaderBean.readFile()}" class="btn btn-primary" />
+            </div>
+            
+        </div>
+        </h:form>
+    </body>
+
+</html>

@@ -17,17 +17,29 @@ public class PeliculaSoap {
     @Inject
     PeliculaLBO peliculaLBO;
 
-    public String crearPelicula(String titulo, int anio, int duracion, String pais) {
-
-        Pelicula peliculaNueva = new Pelicula();
-        peliculaNueva.setTitulo(titulo);
-        peliculaNueva.setDuracion(duracion);
-        peliculaNueva.setAnio(anio);
-        peliculaNueva.setPais(pais);
-
-        peliculaLBO.add(peliculaNueva); // Con esta instruccion se guarda en BD
-
-        return "objeto creado con id: " + peliculaNueva.getId();
+    public String crearPelicula(String t, int a) {
+        Pelicula p = new Pelicula();
+        p.setTitulo(t);
+        p.setAnio(a);        
+        peliculaLBO.add(p);        
+        return "objeto creado con id: " + p.getId();
+    }
+    
+    
+    public String buscarPelicula(Long id){
+        Pelicula p = peliculaLBO.find(id);        
+        return "titulo: " + p.getTitulo() + " año: "+p.getAnio();        
+    }
+    
+    public String eliminarPelicula(Long id){
+        Pelicula peliculaEncontrada = peliculaLBO.find(id);
+        
+        if(peliculaEncontrada != null){
+            peliculaLBO.remove(peliculaEncontrada);
+            return "Pelicula borrada";
+        } else {
+            return "Pelicula no encontrada";
+        }          
     }
 
 }

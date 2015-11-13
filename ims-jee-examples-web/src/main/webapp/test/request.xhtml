@@ -2,41 +2,53 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
-	
-<head>
-	<title>IMS WebApp</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="#{resource['css:default.css']}" />	
-</head>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
-<body>
-	<h1>IMS Aplicación Web</h1>
-	<h:form>	
-		<h:outputLabel value="Tipo: "></h:outputLabel>
-		<h:outputText value="#{requestBean.tipo} " ></h:outputText>
-		<h:outputLabel value=" - "></h:outputLabel>
-		<h:outputLabel value=" No. llamadas: "></h:outputLabel>
-		<h:outputText value="#{requestBean.numeroDeLlamadas}" ></h:outputText>
-		
-		<p ></p>
-		
-		<h:inputText value="#{requestBean.clienteActual}"></h:inputText>
-		<h:outputLabel value=" "></h:outputLabel>
-		<h:commandButton value="Agregar"  action="#{requestBean.agregarCliente()}"></h:commandButton>
-		
-		<p ></p>
-		
-		<h:dataTable value="#{requestBean.clientes}"
-			var="it" border="1" styleClass="center">
-			<h:column> 		
-				<h:outputText value="#{it}"></h:outputText>  
-			</h:column> 
-		</h:dataTable>
-	</h:form>
-	
-</body>
+    <head>
+        <title>IMS WebApp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="#{resource['css:default.css']}" />	
+    </head>
 
+    <body>
+        <div id="header">
+            <h1>IMS Aplicación Web</h1>
+        </div>
+
+        <div class="clear"/>
+        <div id="content" >
+            <h:form>	
+                <h:outputLabel value="Tipo: "></h:outputLabel>
+                <h:outputText value="#{requestBean.tipo} " ></h:outputText>
+                <h:outputLabel value=" - "></h:outputLabel>
+                <h:outputLabel value=" No. llamadas: "></h:outputLabel>
+                <h:outputText value="#{requestBean.numeroDeLlamadas}" ></h:outputText>
+
+                <p ></p>
+
+                <h:inputText value="#{requestBean.clienteActual}"></h:inputText>
+                <h:outputLabel value=" "></h:outputLabel>
+                <h:commandButton value="Agregar"  action="#{requestBean.agregarCliente()}"></h:commandButton>
+
+                <p ></p>
+
+                <h:dataTable value="#{requestBean.clientes}"
+                             var="it" border="1" styleClass="center">
+                    <h:column> 		
+                        <h:outputText value="#{it}"></h:outputText>  
+                    </h:column> 
+                </h:dataTable>
+            </h:form>
+        </div>
+
+        <div class="clear"/>
+        <div id="footer" >
+            <div class="footer-content">
+                IMS - Intelligent Management Systems<br />
+                SmartER Group<br />		
+            </div>
+        </div>
+    </body>
 </html>
