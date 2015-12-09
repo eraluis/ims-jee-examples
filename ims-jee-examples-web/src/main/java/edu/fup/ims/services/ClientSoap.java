@@ -14,26 +14,15 @@ import edu.fup.ims.model.Client;
  *
  * @author Luis Eraso
  */
-@Stateless
-@WebService(serviceName = "ClientSoapService", name = "ClientSoap")
-public class ClientSoap {
+    @Stateless
+    @WebService
+    public class ClientSoap {
 
-    @Inject
-    CreditCardLBO creditCardBO;
-    @Inject
-    ClientLBO clientLBO;
+        @Inject CreditCardLBO creditCardBO;
+        @Inject ClientLBO clientLBO;
 
-    public void createClient(String firstName, String lastName, Date birthday, String address) {
-        Client client = new Client(firstName, lastName, birthday, address);
-        clientLBO.add(client);
+        public void createClient(String firstName) {
+            Client client = new Client(firstName);
+            clientLBO.add(client);
+        }
     }
-
-    /*
-     public void createClient(Client client) throws ApplicationException {
-     if(client.getId() != null){
-     throw new ApplicationException("APP-CL-01 Client already exists");        
-     }
-     clientLBO.add(client);        
-     }
-     */
-}

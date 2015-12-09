@@ -25,6 +25,10 @@ public class PeliculaSoap {
         return "objeto creado con id: " + p.getId();
     }
     
+    public String buscarPorNombre(String t) {      
+        Pelicula p = peliculaLBO.buscarPorNombre(t);
+        return "objeto creado con id: " + p.getId();
+    }
     
     public String buscarPelicula(Long id){
         Pelicula p = peliculaLBO.find(id);        

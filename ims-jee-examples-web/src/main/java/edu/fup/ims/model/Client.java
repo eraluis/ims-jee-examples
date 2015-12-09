@@ -30,6 +30,10 @@ public class Client implements Serializable {
     //Constructor por defeto
     public Client() { }
     
+        public Client(String firstName) {
+        this.firstName = firstName;
+    }
+    
     //Constructor con todos los parametos menos id
     public Client(String firstName, String lastName, Date birthday, String address) {
         this.firstName = firstName;

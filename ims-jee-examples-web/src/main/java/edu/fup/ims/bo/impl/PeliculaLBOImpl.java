@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.fup.ims.bo.impl;
 
 import edu.fup.ims.bo.PeliculaLBO;
 import edu.fup.ims.model.Pelicula;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -24,19 +20,41 @@ public class PeliculaLBOImpl extends CrudBOImpl<Pelicula> implements PeliculaLBO
     public PeliculaLBOImpl(Class<Pelicula> entityClass) {
         super(entityClass);
     }
-
-    @Override
-    public List<Pelicula> listarPeliculas() {
-        return findAll();
-    }
-
+    
     @Override
     public Pelicula crearPelicula(String nombre, int anio) {
         Pelicula nuevoObjeto = new Pelicula();        
         nuevoObjeto.setTitulo(nombre);
         nuevoObjeto.setAnio(anio);
-        add(nuevoObjeto);
-        
+        add(nuevoObjeto); 
         return nuevoObjeto;
     }
+    
+    @Override
+    public Pelicula buscarPorNombre(String nombre) {
+        
+        TypedQuery<Pelicula> query = 
+                this.em.createQuery("SELECT p FROM Pelicula p WHERE p.titulo = :t", Pelicula.class);
+        
+        query.setParameter("t", nombre);
+        return query.getSingleResult();
+        
+    }
+
+    @Override
+    public List<Pelicula> buscarPorAnio(int anio) {
+           
+        TypedQuery<Pelicula> query = 
+                this.em.createQuery("SELECT p FROM Pelicula p WHERE p.anio = :a", Pelicula.class);
+        
+        query.setParameter("a", anio);
+        return query.getResultList();
+    }
+    
+
+    @Override
+    public List<Pelicula> listarTodas() {
+        return super.findAll();
+    }
+
 }

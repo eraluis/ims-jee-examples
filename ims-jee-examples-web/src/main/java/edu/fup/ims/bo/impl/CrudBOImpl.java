@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 public abstract class CrudBOImpl<T> implements CrudBO<T> {
 
     @PersistenceContext(unitName = "streamingPU")
-    private EntityManager em;
+    protected EntityManager em;
     
     private Class<T> entityClass;
     

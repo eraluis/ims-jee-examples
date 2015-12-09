@@ -22,12 +22,10 @@ import javax.ws.rs.core.MediaType;
 @Produces({MediaType.APPLICATION_JSON})
 public class ClientRest {
 
-    @Inject
-    ClientLBO clientLBO;
+    @Inject ClientLBO clientLBO;
 
     @GET
     public List<Client> listClients() {
         return clientLBO.findAll();
     }
-
 }

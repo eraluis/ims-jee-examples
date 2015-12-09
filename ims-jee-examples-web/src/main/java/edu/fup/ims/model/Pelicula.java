@@ -5,68 +5,86 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pelicula implements Serializable {
-	
-	private static final long serialVersionUID = 1189399048888918705L;
-	
-	//atributos
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-	private String titulo;
-	private int anio;
-	private int duracion;
-	private String pais;
-	
-	//constructor por defecto
-	public Pelicula(){ }
 
-	//otro constructor
-	public Pelicula(String t, int a) {
-		titulo = t;
-		anio = a;
-	}
+    private static final long serialVersionUID = 1189399048888918705L;
 
-	//Getters y setters...
-	public Long getId() {
-		return id;
-	}
+    //atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String titulo;
+    private int anio;
+    private int duracion;
+    private String pais;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne
+    @JoinColumn(name = "fk_genero")
+    private Genero genero;
 
-	public String getTitulo() {
-		return titulo;
-	}
+    //constructor por defecto
+    public Pelicula() {
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public Pelicula(String titulo, int anio, int duracion, String pais, Genero genero) {
+        this.titulo = titulo;
+        this.anio = anio;
+        this.duracion = duracion;
+        this.pais = pais;
+        this.genero = genero;
+    }
 
-	public int getAnio() {
-		return anio;
-	}
+    //Getters y setters...
+    public Long getId() {
+        return id;
+    }
 
-	public void setAnio(int anio) {
-		this.anio = anio;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public int getDuracion() {
-		return duracion;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public void setDuracion(int duracion) {
-		this.duracion = duracion;
-	}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public String getPais() {
-		return pais;
-	}
+    public int getAnio() {
+        return anio;
+    }
 
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-	
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
 }
